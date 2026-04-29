@@ -9,6 +9,8 @@ import {
   Pressable,
 } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
+import { Link } from "expo-router";
+
 
 export default function LoginScreen() {
   const [isChecked, setChecked] = useState(false);
@@ -71,7 +73,7 @@ export default function LoginScreen() {
         </TouchableOpacity>
 
         <Text style={styles.footer}>
-          Não tem login? <Text style={styles.linkCad}>Cadastre-se</Text>
+          Não tem login? <Link href={"/cadastro"} style={styles.linkCad}>Cadastre-se</Link>
         </Text>
       </View>
     </View>
