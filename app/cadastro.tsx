@@ -12,8 +12,8 @@ import {
 
 export default function Cadastro() {
   return (
-
     <ScrollView contentContainerStyle={styles.container}>
+<View style={styles.container2}>
       <Image
         source={require("../assets/images/image1.png")}
         style={styles.logo}
@@ -65,8 +65,8 @@ export default function Cadastro() {
         <Text style={styles.botaoTexto}>Registrar</Text>
       </TouchableOpacity>
 
+</View>
     </ScrollView>
-
   )
 }
 
@@ -78,49 +78,38 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  logoImagem: {
-    width: 150,
-    height: 15,
-    alignSelf:  "center",
-    resizeMode: "contain",
-    marginBottom: 10,
+  container2: {
+    width: "85%"
   },
   logo: {
-    fontSize: 34,
-    textAlign: "center",
-    color: "#EB8B36",
-    fontWeight: "bold",
+    alignSelf: "center",
+    justifyContent: "center",
     marginBottom: 15,
   },
   titulo: {
     fontSize: 28,
-    color: "#EB8B36",
+    color: "#FFD2A6",
     textAlign: "center",
     fontWeight: "bold",
   },
   subtitulo: {
-    color: "#EB8B36",
+    color: "#FFD2A6",
     textAlign: "center",
     marginBottom: 25,
   },
-  divisor: {
-    textAlign: "center",
-    color: "#EB8B36",
-    marginBottom: 15,
-  },
   label: {
-    color: "#EB8B36",
+    color: "#FFD2A6",
     marginBottom: 5,
-    marginTop: 10,
     fontWeight: "600",
   },
   input: {
-    backgroundColor: "#FFF",
-    borderRadius: 12,
-    padding: 14,
+    backgroundColor: "#fff",
+    padding: 12,
+    borderRadius: 8,
+    color: "#000",
   },
   regras:{
-    color: "#EB8B36",
+    color: "#FFD2A6",
     fontSize: 11,
     marginTop: 8,
     lineHeight: 16,
