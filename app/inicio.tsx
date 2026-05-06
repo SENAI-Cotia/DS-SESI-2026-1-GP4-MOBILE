@@ -8,53 +8,29 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
+import Icon from "react-native-vector-icons/Feather";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <AppHeader />
-        <HeroSection />
+        <Navbar />
         <CategoryList />
       </ScrollView>
-
       <BottomMenu />
     </View>
   );
 }
 
-function AppHeader() {
+function Navbar() {
   return (
     <View style={styles.header}>
-      <Image
-        source={{ uri: LOGO_URL }}
-        style={styles.logo}
+      <Image 
+        source={require("../assets/images/logo.png")} 
+        style={styles.headerLogo} 
+        resizeMode="contain"
       />
     </View>
-  );
-}
-
-function HeroSection() {
-  return (
-    <ImageBackground
-      source={{ uri: HERO_IMAGE }}
-      style={styles.banner}
-      imageStyle={styles.bannerImage}
-    >
-      <View style={styles.bannerContent}>
-        <Text style={styles.bannerSubtitle}>
-          Qualidade em cada escolha!
-        </Text>
-
-        <Text style={styles.bannerTitle}>Salgados</Text>
-
-        <TouchableOpacity style={styles.primaryButton}>
-          <Text style={styles.primaryButtonText}>
-            Ver produto
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </ImageBackground>
   );
 }
 
@@ -62,13 +38,8 @@ function CategoryList() {
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Categorias</Text>
-
       {CATEGORIES.map((category) => (
-        <CategoryCard
-          key={category.id}
-          title={category.title}
-          image={category.image}
-        />
+        <CategoryCard key={category.id} title={category.title} image={category.image} />
       ))}
     </View>
   );
@@ -98,8 +69,8 @@ function CategoryCard({ title, image }: CategoryCardProps) {
 function BottomMenu() {
   return (
     <View style={styles.bottomNav}>
-      <NavButton icon="👤" label="Perfil" />
-      <NavButton icon="🛒" label="Carrinho" />
+      <NavButton icon="user" label="Perfil" />
+      <NavButton icon="shopping-cart" label="Carrinho" />
     </View>
   );
 }
@@ -112,36 +83,16 @@ type NavButtonProps = {
 function NavButton({ icon, label }: NavButtonProps) {
   return (
     <TouchableOpacity style={styles.navItem}>
-      <Text style={styles.navIcon}>{icon}</Text>
+      <Icon name={icon} size={24} color="#C1442E" />
       <Text style={styles.navLabel}>{label}</Text>
     </TouchableOpacity>
   );
 }
 
-const LOGO_URL = "https://via.placeholder.com/80x80.png?text=Nexbite";
-
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d";
-
 const CATEGORIES = [
-  {
-    id: "1",
-    title: "Salgados",
-    image:
-      "https://images.unsplash.com/photo-1625944190203-3b7d0d1f47c7",
-  },
-  {
-    id: "2",
-    title: "Doces",
-    image:
-      "https://images.unsplash.com/photo-1606312619344-98cfdc98d5b2",
-  },
-  {
-    id: "3",
-    title: "Bebidas",
-    image:
-      "https://images.unsplash.com/photo-1551024506-0bccd828d307",
-  },
+  { id: "1", title: "Salgados", image: "https://i.pinimg.com/736x/80/d2/ed/80d2ed2be438ea6b08d25a9a01c1cc89.jpg" },
+  { id: "2", title: "Doces", image: "https://saborecia.com.br/wp-content/uploads/2020/08/MG_4421-scaled.jpg" },
+  { id: "3", title: "Bebidas", image: "https://mandareceitas.com.br/wp-content/uploads/2023/12/Variacoes-do-Coquetel-de-Frutas-Sem-Alcool-1024x563.jpg" },
 ];
 
 const styles = StyleSheet.create({
@@ -149,60 +100,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#f4efe9",
   },
-
   header: {
-    padding: 16,
+    height: 100,
+    padding: 10,
+    backgroundImage: 'radial-gradient(circle, #C1442E 0%, #71271B 100%)',
+  }, 
+  headerLogo: {
+    width: 100,
+    height: 100,
+    padding: 10,
   },
-
-  logo: {
-    width: 60,
-    height: 60,
-    borderRadius: 12,
-  },
-
-  banner: {
-    height: 180,
-    marginHorizontal: 16,
-    justifyContent: "center",
-  },
-
-  bannerImage: {
-    borderRadius: 16,
-  },
-
-  bannerContent: {
-    padding: 16,
-  },
-
-  bannerSubtitle: {
-    color: "#fff",
-    fontSize: 14,
-  },
-
-  bannerTitle: {
-    color: "#fff",
-    fontSize: 28,
-    fontWeight: "bold",
-    marginVertical: 6,
-  },
-
-  primaryButton: {
-    backgroundColor: "#f59e0b",
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    alignSelf: "flex-start",
-  },
-
-  primaryButtonText: {
-    color: "#fff",
-    fontWeight: "600",
-  },
-
   section: {
     marginTop: 12,
   },
-
   sectionTitle: {
     fontSize: 22,
     textAlign: "center",
@@ -210,21 +120,17 @@ const styles = StyleSheet.create({
     color: "#d97706",
     fontWeight: "bold",
   },
-
   card: {
     marginHorizontal: 16,
     marginBottom: 16,
   },
-
   cardImage: {
     height: 120,
     justifyContent: "center",
   },
-
   cardImageRadius: {
     borderRadius: 16,
   },
-
   cardOverlay: {
     flex: 1,
     justifyContent: "center",
@@ -232,33 +138,25 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,0,0,0.35)",
     borderRadius: 16,
   },
-
   cardTitle: {
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
   },
-
   bottomNav: {
     flexDirection: "row",
     justifyContent: "space-around",
-    paddingVertical: 12,
+    paddingVertical: 10,
     borderTopWidth: 1,
     borderColor: "#ddd",
     backgroundColor: "#fff",
   },
-
   navItem: {
     alignItems: "center",
   },
-
-  navIcon: {
-    fontSize: 20,
-  },
-
   navLabel: {
     fontSize: 12,
     color: "#b45309",
-    marginTop: 2,
+    marginTop: 4,
   },
 });
