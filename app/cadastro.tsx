@@ -15,7 +15,7 @@ export default function Cadastro() {
     <ScrollView contentContainerStyle={styles.container}>
 <View style={styles.container2}>
       <Image
-        source={require("../assets/images/image1.png")}
+        source={require("../assets/images/logo.png")}
         style={styles.logo}
       />
 

@@ -1,4 +1,3 @@
-// Testar
 import React from "react";
 import {
     View,
@@ -8,7 +7,7 @@ import {
     TouchableOpacity,
     ScrollView,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export const itens = [
     {

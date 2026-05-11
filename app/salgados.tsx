@@ -7,44 +7,44 @@ import {
     TouchableOpacity,
     ScrollView,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export const itens = [
     {
         nome: "Coxinha",
-        descricao: "Massa de batata, recheada com frango desfiado e requeijão, empanada e frita.",
+        descricao: "Coxinha de frango com requeijão.",
         preco: "R$ 6,00",
-        imagem: require("../assets/images/Rectangle 92.png")
+        imagem: require("../assets/images/coxinha.png")
     },
     {
         nome: "Esfiha",
-        descricao: "Massa macia assada, recheada com carne, frango ou calabresa temperada.",
+        descricao: "Esfiha de frango com requeijão.",
         preco: "R$ 5,00",
-        imagem: require("../assets/images/image 32.png")
+        imagem: require("../assets/images/espiha.png")
     },
     {
         nome: "Risole",
-        descricao: "Massa leve, recheada com presunto e queijo, empanada e frita até dourar.",
+        descricao: "Risole, feito com massa de pastel recheada com carne moída.",
         preco: "R$ 6,00",
-        imagem: require("../assets/images/image 34.png")
+        imagem: require("../assets/images/risoles.png")
     },
     {
         nome: "Pão de queijo",
-        descricao: "Bolinho assado de polvilho e queijo, crocante por fora e macio por dentro.",
-        preco: "R$ 5,00",
-        imagem: require("../assets/images/image 32 (2).png")
+        descricao: "Pão de queijo, feito com massa de queijo e recheado com queijo.",
+        preco: "R$ 7,00",
+        imagem: require("../assets/images/paodequeijo.png")
     },
     {
-        nome: "Hambúrguer",
-        descricao: "Pão macio recheado com carne bovina grelhada, queijo derretido, alface, tomate e molho especial.",
-        preco: "R$ 6,00",
-        imagem: require("../assets/images/Rectangle 90.png")
+        nome: "Hambúguer",
+        descricao: "Hambúguer, feito com carne moída e pão de hambúguer.",
+        preco: "R$ 8,00",
+        imagem: require("../assets/images/hamburguer.png")
     },
     {
         nome: "Pizza",
-        descricao: "Massa fina assada, coberta com molho de tomate e queijo derretido.",
-        preco: "R$ 5,00",
-        imagem: require("../assets/images/image 32 (1).png")
+        descricao: "Pizza, feita com massa super leve e fofinha com recheio de creme de confeiteiro.",
+        preco: "R$ 7,00",
+        imagem: require("../assets/images/pizzas.png")
     },
 
 ];
@@ -66,7 +66,7 @@ export default function Salgados() {
 
                 <View style={styles.headerContent}>
                     <Text style={styles.subtitle}>
-                        Os melhores salgados{"\n"}para o seu momento de fome!
+                        Os melhores Salgados{"\n"}os melhores Salgados da região!
                     </Text>
 
                     <Image
@@ -88,7 +88,7 @@ export default function Salgados() {
                         <View style={styles.priceBox}>
                             <Text style={styles.preco}>{item.preco}</Text>
                             <Text style={styles.unidade}>unidade</Text>
-                            <Text style={styles.restante}>restantes: 8</Text>
+                            <Text style={styles.restante}>restantes: 14</Text>
                         </View>
 
                     </View>

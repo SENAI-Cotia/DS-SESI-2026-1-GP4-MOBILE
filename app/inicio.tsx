@@ -8,7 +8,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import Icon from "react-native-vector-icons/Feather";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function HomeScreen() {
   return (
@@ -17,6 +17,7 @@ export default function HomeScreen() {
         <Navbar />
         <CategoryList />
       </ScrollView>
+
       <BottomMenu />
     </View>
   );
@@ -25,9 +26,9 @@ export default function HomeScreen() {
 function Navbar() {
   return (
     <View style={styles.header}>
-      <Image 
-        source={require("../assets/images/logo.png")} 
-        style={styles.headerLogo} 
+      <Image
+        source={require("../assets/images/logo.png")}
+        style={styles.headerLogo}
         resizeMode="contain"
       />
     </View>
@@ -38,8 +39,13 @@ function CategoryList() {
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Categorias</Text>
+
       {CATEGORIES.map((category) => (
-        <CategoryCard key={category.id} title={category.title} image={category.image} />
+        <CategoryCard
+          key={category.id}
+          title={category.title}
+          image={category.image}
+        />
       ))}
     </View>
   );
@@ -68,31 +74,39 @@ function CategoryCard({ title, image }: CategoryCardProps) {
 
 function BottomMenu() {
   return (
-    <View style={styles.bottomNav}>
-      <NavButton icon="user" label="Perfil" />
-      <NavButton icon="shopping-cart" label="Carrinho" />
+    <View style={styles.footer}>
+      <TouchableOpacity style={styles.footerItem}>
+        <Ionicons name="person" size={22} color="#c94c2c" />
+        <Text style={styles.footerText}>Perfil</Text>
+    </TouchableOpacity>
+    
+      <TouchableOpacity style={styles.footerItem}>
+        <Ionicons name="cart" size={22} color="#c94c2c" />
+        <Text style={styles.footerText}>Carrinho</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
-type NavButtonProps = {
-  icon: string;
-  label: string;
-};
-
-function NavButton({ icon, label }: NavButtonProps) {
-  return (
-    <TouchableOpacity style={styles.navItem}>
-      <Icon name={icon} size={24} color="#C1442E" />
-      <Text style={styles.navLabel}>{label}</Text>
-    </TouchableOpacity>
-  );
-}
-
 const CATEGORIES = [
-  { id: "1", title: "Salgados", image: "https://i.pinimg.com/736x/80/d2/ed/80d2ed2be438ea6b08d25a9a01c1cc89.jpg" },
-  { id: "2", title: "Doces", image: "https://saborecia.com.br/wp-content/uploads/2020/08/MG_4421-scaled.jpg" },
-  { id: "3", title: "Bebidas", image: "https://mandareceitas.com.br/wp-content/uploads/2023/12/Variacoes-do-Coquetel-de-Frutas-Sem-Alcool-1024x563.jpg" },
+  {
+    id: "1",
+    title: "Salgados",
+    image:
+      "https://i.pinimg.com/736x/80/d2/ed/80d2ed2be438ea6b08d25a9a01c1cc89.jpg",
+  },
+  {
+    id: "2",
+    title: "Doces",
+    image:
+      "https://saborecia.com.br/wp-content/uploads/2020/08/MG_4421-scaled.jpg",
+  },
+  {
+    id: "3",
+    title: "Bebidas",
+    image:
+      "https://mandareceitas.com.br/wp-content/uploads/2023/12/Variacoes-do-Coquetel-de-Frutas-Sem-Alcool-1024x563.jpg",
+  },
 ];
 
 const styles = StyleSheet.create({
@@ -100,19 +114,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#f4efe9",
   },
+
   header: {
     height: 100,
     padding: 10,
+    justifyContent: "center",
     backgroundImage: 'radial-gradient(circle, #C1442E 0%, #71271B 100%)',
-  }, 
-  headerLogo: {
-    width: 100,
-    height: 100,
-    padding: 10,
   },
+
+  headerLogo: {
+    width: 80,
+    height: 80,
+  },
+
   section: {
     marginTop: 12,
+    paddingBottom: 90,
   },
+
   sectionTitle: {
     fontSize: 22,
     textAlign: "center",
@@ -120,17 +139,21 @@ const styles = StyleSheet.create({
     color: "#d97706",
     fontWeight: "bold",
   },
+
   card: {
     marginHorizontal: 16,
     marginBottom: 16,
   },
+
   cardImage: {
     height: 120,
     justifyContent: "center",
   },
+
   cardImageRadius: {
     borderRadius: 16,
   },
+
   cardOverlay: {
     flex: 1,
     justifyContent: "center",
@@ -138,25 +161,39 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,0,0,0.35)",
     borderRadius: 16,
   },
+
   cardTitle: {
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
   },
-  bottomNav: {
+
+  footer: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+
+    height: 70,
+    backgroundColor: "#f4efe9",
+
     flexDirection: "row",
     justifyContent: "space-around",
-    paddingVertical: 10,
-    borderTopWidth: 1,
-    borderColor: "#ddd",
-    backgroundColor: "#fff",
-  },
-  navItem: {
     alignItems: "center",
+
+    borderTopWidth: 1,
+    borderTopColor: "#c94c2c",
   },
-  navLabel: {
+
+  footerItem: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  footerText: {
     fontSize: 12,
-    color: "#b45309",
-    marginTop: 4,
+    color: "#c94c2c",
+    marginTop: 3,
+    fontWeight: "600",
   },
 });
