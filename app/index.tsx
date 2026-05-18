@@ -8,12 +8,13 @@ import {
   StyleSheet,
   Pressable,
 } from "react-native";
-import { Ionicons } from '@expo/vector-icons';
-import { Link } from "expo-router";
+import { Ionicons } from '@react-native-vector-icons/ionicons/static';
+import { Link, useRouter } from "expo-router";
 
 
 export default function LoginScreen() {
   const [isChecked, setChecked] = useState(false);
+  const router = useRouter();
 
   return (
     <View style={styles.container}>
@@ -68,7 +69,7 @@ export default function LoginScreen() {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.loginBotao}>
+        <TouchableOpacity style={styles.loginBotao} onPress={() => router.push("/inicio")}>
           <Text style={styles.loginText}>Entrar</Text>
         </TouchableOpacity>
 
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
 
   text: {
     marginHorizontal: 10,
-    color: "#FFAD73",
+    color: "#73ff86",
   },
 
   entry: {
